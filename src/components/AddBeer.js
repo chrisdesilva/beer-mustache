@@ -89,7 +89,7 @@ export default class AddBeer extends Component {
             />
           </div>
           <div className="form-group">
-            <label>Your review: </label>
+            <label>Your Review: </label>
             <textarea 
               type="text" 
               className="form-control"

@@ -16,11 +16,16 @@ export default class IndexComponent extends Component {
         console.log(error)
       });
   }
-  tabRow(){
-    return this.state.beer.map(function(object, i) {
-      return <TableRow obj={object} key={i} />;
+  tabRow =() => {
+    return this.state.beer.map((object, i) => {
+      return <TableRow obj={object} key={i} indice={i} delete={ (ind) => this.deleteItem(ind)} />;
     });
   }
+
+  deleteItem = (index) => {
+    this.setState({beer: this.state.beer.filter((_,i) => i !==index)});
+  }
+
   render() {
     return (
       <div>
@@ -31,7 +36,6 @@ export default class IndexComponent extends Component {
               <th>Beer</th>
               <th>Brewery</th>
               <th>Review</th>
-              <th>Photo</th>
               <th colSpan="2">Action</th>
             </tr>
           </thead>
