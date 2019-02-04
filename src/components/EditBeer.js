@@ -59,7 +59,7 @@ export default class EditBeer extends Component {
     axios.post('http://localhost:4000/beer/update/'+this.props.match.params.id, obj)
         .then(res => console.log(res.data));
     
-    this.props.history.push('/index');
+    this.props.history.push('/');
   }
 
   render() {

@@ -41,7 +41,7 @@ export default class AddBeer extends Component {
       url: this.state.url,
       review: this.state.review
     };
-    axios.post('http://localhost:4000/beer/add', obj)
+    axios.post('http://localhost:4000/beer/create', obj)
       .then(res => console.log(res.data));
 
     this.setState({

@@ -26,6 +26,9 @@ class TableRow extends Component {
           {this.props.obj.review}
         </td>
         <td>
+          <Link to={"show/"+this.props.obj._id} className="btn btn-primary">View</Link>
+        </td>
+        <td>
           <Link to={"edit/"+this.props.obj._id} className="btn btn-primary">Edit</Link>
         </td>
         <td>

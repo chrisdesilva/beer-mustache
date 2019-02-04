@@ -4,8 +4,8 @@ const beerRoutes = express.Router();
 //Beer model
 let Beer = require('./beer-info');
 
-//Store route
-beerRoutes.route('/add').post(function (req, res) {
+//Create route
+beerRoutes.route('/create').post(function (req, res) {
   let beer = new Beer(req.body);
   beer.save()
     .then(beer => {
@@ -31,9 +31,26 @@ beerRoutes.route('/').get(function (req, res) {
 beerRoutes.route('/edit/:id').get(function (req, res){
   let id = req.params.id;
   Beer.findById(id, function (err, beer){
-    res.json(beer);
+    if(err){
+      console.log(err);
+    }
+    else {
+      res.json(beer);
+    }
   });
 });
+
+//View beer route
+beerRoutes.route('/show/:id').get(function (req, res){
+  let id = req.params.id;
+  Beer.findById(id, function(err, beer){
+    if(err){
+      console.log(err)
+    } else {
+    res.json(beer);
+    }
+  })
+})
 
 //Update route
 beerRoutes.route('/update/:id').post(function (req, res){

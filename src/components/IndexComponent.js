@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import TableRow from './TableRow';
 
 export default class IndexComponent extends Component {
@@ -29,7 +30,7 @@ export default class IndexComponent extends Component {
   render() {
     return (
       <div>
-        <h3 align="center">Beer List</h3>
+        <h3 className="my-4" align="center">Beer List</h3>
         <table className="table table-striped" style={{ marginTop: 20 }}>
           <thead>
             <tr>
@@ -43,6 +44,7 @@ export default class IndexComponent extends Component {
             { this.tabRow() }
           </tbody>
         </table>
+            <Link to={"/create"} className="nav-link"><button>Add Beer</button></Link>
       </div>
     );
   }
